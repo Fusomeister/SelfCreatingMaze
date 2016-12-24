@@ -54,6 +54,7 @@ namespace SelfCreatingMaze
             }
 
             current.IsVisited = true;
+            Highlighted(current);
 
             //step 1
             Cell next = CheckNeigbors(current);
@@ -215,6 +216,14 @@ namespace SelfCreatingMaze
             {
                 g.FillRectangle(new SolidBrush(Color.Blue), x, y, w, w);
             }
+        }
+
+        private void Highlighted(Cell c)
+        {
+            int x = c.i * w;
+            int y = c.j * w;
+
+            g.FillRectangle(new SolidBrush(Color.BlueViolet), x, y, w, w);
         }
     }
 }
