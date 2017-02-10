@@ -9,7 +9,7 @@ namespace SelfCreatingMaze
 {
     public partial class Form1 : Form
     {
-        //hej
+        //hejsa
         Bitmap drawingArea = new Bitmap(403, 403);
         int cols, rows;
         int w = 20;
