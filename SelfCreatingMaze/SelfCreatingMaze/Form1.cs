@@ -9,10 +9,10 @@ namespace SelfCreatingMaze
 {
     public partial class Form1 : Form
     {
-        
+        //hej
         Bitmap drawingArea = new Bitmap(403, 403);
         int cols, rows;
-        int w = 40;
+        int w = 20;
         List<Cell> grid = new List<Cell>();
         private Graphics g;
 
@@ -87,7 +87,7 @@ namespace SelfCreatingMaze
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            Thread.Sleep(500);
+            Thread.Sleep(0);
             PaintToScreen();
         }
 
