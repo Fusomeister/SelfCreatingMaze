@@ -9,13 +9,14 @@ namespace SelfCreatingMaze
 {
     public partial class Form1 : Form
     {
-        //hejsaflædafkdklæl
-        Bitmap drawingArea = new Bitmap(403, 403);
-        int cols, rows;
-        int w = 20;
-        List<Cell> grid = new List<Cell>();
-        private Graphics g;
 
+        private Bitmap drawingArea = new Bitmap(403, 403);
+        private int cols, rows;
+        private int w = 20;
+        private List<Cell> grid = new List<Cell>();
+        private List<Cell> stack = new List<Cell>();
+        private Graphics g;
+        private Random rnd = new Random();
         private Cell current;
 
         public Form1()
@@ -41,9 +42,7 @@ namespace SelfCreatingMaze
 
             current = grid[0];          
         }
-
-
-        private List<Cell> stack = new List<Cell>();
+        
         //paint screen "update"
         public void PaintToScreen()
         {
@@ -81,17 +80,13 @@ namespace SelfCreatingMaze
             pictureBox1.Image = drawingArea;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            Thread.Sleep(0);
+            Thread.Sleep(10);
             PaintToScreen();
         }
 
-        //remove walls, so when updated they are not painted again
+        //remove walls, so when update they are not painted again
         private void RemoveWalls(Cell theCurrent, Cell theNext)
         {
             int x = theCurrent.i - theNext.i;
@@ -131,7 +126,7 @@ namespace SelfCreatingMaze
         }
 
         //check who's around and visisted       
-        Random rnd = new Random();
+
         private Cell CheckNeigbors(Cell current)
         {
             List<Cell> neighbors = new List<Cell>();
